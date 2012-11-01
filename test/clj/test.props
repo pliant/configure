@@ -1,0 +1,8 @@
+# Normal value
+key_1=value1
+
+# Base 64 encoded/encrypted value of 'value2'
+key-2=ENC(Dfg9LTFIR9y6yu4oUFBK6g==)
+
+# Hex encoded/encrypted value of 'value3'
+key.3=ENC(e5024929cb3d4e43f6ebd6d99b29f633)!
