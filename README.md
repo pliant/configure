@@ -44,7 +44,7 @@ The VAR "config" now contains a map with all of the key/value pairs from the "my
 All private data, such as credentials to connect to external applications (services, database) should be externalized and encrypted. So how do you get an encrypted value? Easy-peasy, it is. All you need to do is open a REPL, import the pliant.configure.codec namespace, and encrypt a value using the provided functions:
 
 ```clojure
--> (use 'pliant.configure.crypto )
+-> (use 'pliant.configure.codec)
 nil
 -> (encode-hex (encrypt "This Is My Value" (spec-key "This Is My PassKey")))
 "ENC(78c5e513dc22a92f92f200a9e51ffd26ab7007fbf166d22d665bdd43f8baeffc)!"
