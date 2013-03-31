@@ -1,4 +1,4 @@
-(defproject configure "0.1.0"
+(defproject pliant/configure "0.1.0"
   :description "Provides a simple library for adding flexible and encryptable configuration to your project."
   
   :url "https://github.com/pliant/process"
