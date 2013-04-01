@@ -1,7 +1,7 @@
-(defproject pliant/configure "0.1.1"
-  :description "Provides a simple library for adding flexible and encryptable configuration to your project."
+(defproject pliant/configure "0.1.2-SNAPSHOT"
+  :description "Provides a small Clojure library that adds encryptable configuration and runtime resource loading to your software application or software product."
   
-  :url "https://github.com/pliant/process"
+  :url "https://github.com/pliant/configure"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   
