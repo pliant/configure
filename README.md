@@ -1,6 +1,6 @@
 # About
 
-Provides a small Clojure library that adds encryptable configuration to your software application or software product.
+Provides a small Clojure library that adds encryptable configuration and runtime resource loading to your software application or software product.
 
 ## Adding Configuration To Your Application
 
@@ -62,3 +62,12 @@ Encoding the encrypted value in either hexadecimal or base64 format is your choi
 ## Why Sniff?
 
 Sniffing for a private passkey rather than coding the location where it is found allows for the flexibility of choosing where we set that value base on what is most secure for the environment. For some installations it may be best to set it as a context in the application server, where others it should be supplied through environmental variables. It in the end, it gives us choice and flexibility while not exposing in the code exactly where to find the passkey.
+
+## Resource Loading
+The ``pliant.configure.runtime`` namespace provides functions for loading Clojure resource files at runtime.  Clojure already provides functions for loading resources, but it uses the ``ClassLoader.getResource`` method, which gets the first resource found at the given path.  The ``runtime`` namespace functions allow for loading all resources at the given path location (say, within different jars) to be loaded.
+
+Currently, the only load function available is ``load-resources``, which finds all of the resources at a given location path and loads them.  The following snippet finds all of the ``loader.clj`` files within the ``myorg.myapp`` package in the classpath and loads them:
+
+```clojure
+(runtime/load-resources "myorg/myapp/loader.clj")
+```
