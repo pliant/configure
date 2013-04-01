@@ -1,0 +1,2 @@
+(ns someones.namespace
+  (:use [pliant.bootstrap.refer]))
