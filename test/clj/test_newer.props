@@ -1,0 +1,5 @@
+# Normal value
+key_1=value2
+
+# Hex encoded/encrypted value of 'value3'
+key.4=value4

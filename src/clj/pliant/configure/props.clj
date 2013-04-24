@@ -5,7 +5,8 @@
 (defn keyify
   "Provides keyword based keys for values in a properties map, without removing the original value."
   [props-map]
-  (concat props-map (for [[k v] props-map] [(keyword k) v])))
+  (merge props-map 
+         (into {} (map (fn [[k v]] [(if (keyword? k) k (keyword k)) v])  props-map))))
 
 (defn props->map
   [stream]
@@ -26,6 +27,20 @@
   (let [props (java.util.Properties.)]
     (with-resources path #(.load props %))
     (keyify (into {} props))))
+
+
+(defn overlay-props
+  "Loads key/value properties from resources on the classpath, allowing the overwriting of values from 
+   earlier resources with the later ones."
+  [& paths]
+  (apply merge (doall (map slurp-props paths))))
+
+
+(defn overlay-all-props
+  "Loads key/value properties from all instances of resources on the classpath, allowing the overwriting 
+   of values from earlier resources with the later ones."
+  [& paths]
+  (apply merge (doall (map slurp-all-props paths))))
 
 
 (defn slurp-config

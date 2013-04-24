@@ -33,3 +33,21 @@
   (is (= "value2" (config "key-2")) "Could not find the correct value for key-2")
   (is (= "value3" (config "key.3")) "Could not find the correct value for key.3")
   (is (nil? (config "unknown-key")) "Could not find the correct value for unknown-key")))
+
+
+(deftest test-overlay-props
+  (let [props (overlay-props "test.props" "test_newer.props")]
+  (is (= (count props) 8) "Unable to load test.props file from classpath.") ; Count is 8 because keyify records the values under strings and keys.
+  (is (= "value2" (props "key_1")) "Could not find the correct value for key_1")
+  (is (= "value4" (props "key.4")) "Could not find the correct value for key.4")
+  (is (nil? (props "unknown-key")) "Could not find the correct value for unknown-key")))
+
+
+(deftest test-overlay-all-props
+  (let [props (overlay-all-props "test.props" "test_newer.props")]
+  (is (= (count props) 8) "Unable to load test.props file from classpath.") ; Count is 8 because keyify records the values under strings and keys.
+  (is (= "value2" (props "key_1")) "Could not find the correct value for key_1")
+  (is (= "value4" (props "key.4")) "Could not find the correct value for key.4")
+  (is (nil? (props "unknown-key")) "Could not find the correct value for unknown-key")))
+
+
