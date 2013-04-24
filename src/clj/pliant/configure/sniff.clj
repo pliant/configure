@@ -1,12 +1,5 @@
-(ns pliant.configure.sniff)
-
-
-(defn resource
-  "Gets the input stream of a file on the classpath"
-  [url]
-   (-> (Thread/currentThread)
-               (.getContextClassLoader)
-               (.getResourceAsStream url)))
+(ns pliant.configure.sniff
+  (:require [pliant.configure.resources :as resources]))
 
 
 (defn sniff-env
@@ -40,9 +33,7 @@
 (defn sniff-content
   "Looks for content in a file on the classpath."
   [k]
-  (try 
-    (slurp (resource (name k)))
-    (catch Exception e nil)))
+  (resources/with-resource (name k) slurp))
 
 
 (defn sniff
