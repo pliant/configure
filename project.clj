@@ -1,4 +1,4 @@
-(defproject pliant/configure "0.1.2-SNAPSHOT"
+(defproject pliant/configure "0.1.2"
   :description "Provides a small Clojure library that adds encryptable configuration and runtime resource loading to your software application or software product."
   
   :url "https://github.com/pliant/configure"
