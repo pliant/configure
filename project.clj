@@ -1,4 +1,4 @@
-(defproject pliant/configure "0.1.2"
+(defproject pliant/configure "0.1.3-SNAPSHOT"
   :description "Provides a small Clojure library that adds encryptable configuration and runtime resource loading to your software application or software product."
   
   :url "https://github.com/pliant/configure"
@@ -12,7 +12,7 @@
   ;; Keep java source and project definition out of the artifact
   :jar-exclusions [#"^\." #"^*\/\." #"\.java$" #"project\.clj"]
   
-  :signing {:gpg-key "Pliant"}
+  :signing {:gpg-key "B42493D5"}
   
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [commons-codec "1.6"]])
