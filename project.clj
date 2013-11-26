@@ -12,6 +12,7 @@
   ;; Keep java source and project definition out of the artifact
   :jar-exclusions [#"^\." #"^*\/\." #"\.java$" #"project\.clj"]
   
-  :dependencies [[org.clojure/clojure "1.3.0"]
+  :signing {:gpg-key "Pliant"}
+  
+  :dependencies [[org.clojure/clojure "1.4.0"]
                  [commons-codec "1.6"]])
-
