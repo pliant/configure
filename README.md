@@ -10,6 +10,11 @@ You add configuration to your application by:
 2. Define a VAR to hold the configuration properties acquired using the handy dandy slurp-config function.
 3. Reference the configuration namespace/VAR from where ever you need the configuration values.
 
+NOTE: slurp-config uses the classpath to find your config file 
+       unlike clojure.core/slurp which takes a file path such as "config/myapplication.props" 
+       slurp-config just needs the name "myapplication.props"
+       so two things to remember with this function, 1) make sure it's on your classpath 2) only use the file name
+
 Below is an example:
 
 ```clojure
@@ -27,7 +32,7 @@ The VAR "config" now contains a map with all of the key/value pairs from the "my
 
 * _pliant.configure.props_ is a namespace that provides functions for loading/decrypting properties files.
 * _pliant.configure.sniff_ is a namespace that provides a way to find/sniff out a value based on context.
-* _slurp-config_ is a function that will load a properties file from the classpath, load it into a map, and decrypt any values that are tagged as encrypted. The function is overloaded, with the following signatures:
+* _slurp-config_ is a function that will load a properties file **from the classpath**, load it into a map, and decrypt any values that are tagged as encrypted. The function is overloaded, with the following signatures:
     + [NameOfPropertyFile] - loads the property file and no decryption is attempted.
     + [NameOfPropertyFile PassKey] - loads the property file and decrypts using the PassKey and the default encryption configuration (AES, 128-bit)
     + NameOfPropertyFile PassKey Options] - loads the property file and decrypts using the PassKey and the decryption configuration (changing algorithm, size)
